@@ -269,35 +269,67 @@ namespace Samlingsklasser
                     //Lägg till det senaste talet i listan
                     Lista.Add(tal);
                     //Få ut listans medelvärde
-                    Console.WriteLine(Lista.Average());
+                    Console.WriteLine("Medelvärde: " + Lista.Average());
                 }
             }
         }
         static void Övning_3()
         {
-
-        }
-        static void Övning_4()
-        {
-            SortedList<string, int> Kortlek = new SortedList<string, int>();
+            Random random = new Random();
+            List<string> Kortlek = new List<string>();
             var typ = new string[] { "h", "r", "k", "s" };
-            for (int i = 0; i < 4; i++)
+            for (int i = 1; i < 4; i++)
             {
-                Kortlek.Add(typ[i] + "E", 1 + (i * 13));
+                Kortlek.Add(typ[i] + "E");
 
                 for (int a = 2; a <= 10; a++)
                 {
-                    Kortlek.Add(typ[i] + a.ToString(), a + (i * 13));
+                    Kortlek.Add(typ[i] + a.ToString());
                 }
-                Kortlek.Add(typ[i] + "Kn", 11 + (i * 13));
-                Kortlek.Add(typ[i] + "D", 12 + (i * 13));
-                Kortlek.Add(typ[i] + "K", 13 + (i * 13));
+                Kortlek.Add(typ[i] + "Kn");
+                Kortlek.Add(typ[i] + "D");
+                Kortlek.Add(typ[i] + "K");
+            }
+            while (Kortlek.Count != 0)
+            {
+                int slump = random.Next(0, Kortlek.Count);
+                Console.WriteLine("Du drog: " + Kortlek[slump]);
+                Kortlek.RemoveAt(slump);
+            }
+        }
+        static void Övning_4()
+        {
+            Dictionary<string, int> Kortlek = new Dictionary<string, int>();
+            var typ = new string[] { "h", "r", "k", "s" };
+            for (int i = 1; i <= 4; i++)
+            {
+                Kortlek.Add(typ[i] + "E", 1);
+
+                for (int a = 2; a <= 10; a++)
+                {
+                    Kortlek.Add(typ[i] + a.ToString(), a);
+                }
+                Kortlek.Add(typ[i] + "Kn", 11);
+                Kortlek.Add(typ[i] + "D", 12);
+                Kortlek.Add(typ[i] + "K", 13);
             }
             //"Iterera" genom samlingen
             foreach (KeyValuePair<string, int> kvp in Kortlek)
             {
                 Console.WriteLine("Nyckel: {0} Värde: {1}", kvp.Key, kvp.Value);
             }
+            /*for (int i = 0; i < 1000; i++)
+            {
+                int slump1 = tal1.Next(0, korten.Count);
+                int slump2 = tal1.Next(0, korten.Count);
+
+                if (korten[par[slump2]] == korten[par[slump1]])
+                {
+                    Console.WriteLine("Par!");
+                    counter++;
+                }
+            }
+            */
         }
         static void Övning_5()
         {
