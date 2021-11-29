@@ -278,7 +278,7 @@ namespace Samlingsklasser
             Random random = new Random();
             List<string> Kortlek = new List<string>();
             var typ = new string[] { "h", "r", "k", "s" };
-            for (int i = 1; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 Kortlek.Add(typ[i] + "E");
 
@@ -299,9 +299,10 @@ namespace Samlingsklasser
         }
         static void Övning_4()
         {
+            Random random = new Random();
             Dictionary<string, int> Kortlek = new Dictionary<string, int>();
             var typ = new string[] { "h", "r", "k", "s" };
-            for (int i = 1; i <= 4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 Kortlek.Add(typ[i] + "E", 1);
 
@@ -313,23 +314,18 @@ namespace Samlingsklasser
                 Kortlek.Add(typ[i] + "D", 12);
                 Kortlek.Add(typ[i] + "K", 13);
             }
-            //"Iterera" genom samlingen
-            foreach (KeyValuePair<string, int> kvp in Kortlek)
+            int counter = 0;
+            for (int i = 0; i < 1000; i++)
             {
-                Console.WriteLine("Nyckel: {0} Värde: {1}", kvp.Key, kvp.Value);
-            }
-            /*for (int i = 0; i < 1000; i++)
-            {
-                int slump1 = tal1.Next(0, korten.Count);
-                int slump2 = tal1.Next(0, korten.Count);
-
-                if (korten[par[slump2]] == korten[par[slump1]])
+                int slump1 = random.Next(0, Kortlek.Keys.ToArray().Length);
+                int slump2 = random.Next(0, Kortlek.Keys.ToArray().Length);
+                if (Kortlek[Kortlek.Keys.ToArray()[slump2]] == Kortlek[Kortlek.Keys.ToArray()[slump1]])
                 {
                     Console.WriteLine("Par!");
                     counter++;
                 }
             }
-            */
+            Console.WriteLine(counter);
         }
         static void Övning_5()
         {
