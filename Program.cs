@@ -18,6 +18,8 @@ namespace Samlingsklasser
             Console.WriteLine("5. Tärningskast med SortedList (Övning 1).");
             Console.WriteLine("6. Queue-exempel.");
             Console.WriteLine("7. Stack-exempel.");
+            Console.WriteLine("8. Övning 2");
+            Console.WriteLine("9. Övning 3");
 
             //Läs in menyval
             Console.Write("Ange siffra för vad du vill göra: ");
@@ -46,11 +48,15 @@ namespace Samlingsklasser
                 case "7":
                     StackExempel();
                     break;
-            }
+                case "8":
+                    Övning_2();
+                    break;
+                case "9":
+                    Övning_3();
 
+            }
             Console.ReadKey();
         }
-
         static void DictionaryExempel()
         {
             //Skapa en dictionary med string som nyckel och int som värde
@@ -70,7 +76,6 @@ namespace Samlingsklasser
                 Console.WriteLine("Nyckel: {0} Värde: {1}", kvp.Key, kvp.Value);
             }
         }
-
         static void DiceSortedList()
         {
             //Övning 1
@@ -101,7 +106,6 @@ namespace Samlingsklasser
             }
 
         }
-
         static void DiceDictionary()
         {
             //Skapa en dictionary med int som nyckel och int som värde
@@ -131,7 +135,6 @@ namespace Samlingsklasser
             }
 
         }
-
         static void QueueExempel()
         {
                 Queue<string> nummer = new Queue<string>();
@@ -175,7 +178,6 @@ namespace Samlingsklasser
                 Console.WriteLine(nummer.Pop());
             }
         }
-
         static void IntegerLista()
         {
             //Skapa en lista av int
@@ -212,7 +214,6 @@ namespace Samlingsklasser
                 Console.WriteLine("Tal: {0}", tal);
             }
         }
-
         static void DoubleLista()
         {
             //Skapa en lista av double
@@ -237,7 +238,44 @@ namespace Samlingsklasser
             {
                 Console.WriteLine("Värde: " + d);
             }
+        }
+        static void Övning_2()
+        {
+            //Skapa en lista av double
+            List<double> Lista = new List<double>();
+            
+            //Upprepa för alltid eller vid visa conditioner
+            while (true)
+            {
+                //Skriv ut information
+                Console.WriteLine("Skriv ett tal: ");
+                //Mata in talets värde
+                double tal = Convert.ToDouble(Console.ReadLine());
+                //Ifall talet är 0 avslutas programmet
+                if (tal == 0)
+                {
+                    break;
+                }
+                else
+                {
+                    //Lägg till det senaste talet i listan
+                    Lista.Add(tal);
+                    //Få ut listans medelvärde
+                    Console.WriteLine(Lista.Average());
+                }
+            }
+        }
+        static void Övning_3()
+        {
+            SortedList<string, int> Kortlek = new SortedList<string, int>();
+            for (int i = 0; i < 10; i++)
+            {
+                //hE, h2, h3, h4, h5, h6, h7, h8 h9, h10, hKn, hD, hK
+                //rE, r2, r3, r4, r5, r6, r7, r8 r9, r10, rKn, rD, rK
+                //kE, k2, k3, k4, k5, k6, k7, k8 k9, k10, kKn, kD, kK
+                //kE, k2, k3, k4, k5, k6, k7, k8 k9, k10, kKn, kD, kK
 
+            }
         }
     }
 }
